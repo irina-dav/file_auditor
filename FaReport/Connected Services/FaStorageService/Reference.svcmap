@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="add2fd2d-3431-4c97-b0d2-343da046283f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:9999/FaStorageService" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="FaStorageService.xsd" MetadataType="Schema" ID="f1457b95-4783-410f-bef2-a73cc9f11e38" SourceId="1" SourceUrl="http://localhost:9999/FaStorageService?xsd=xsd1" />
+    <MetadataFile FileName="FaStorageService1.xsd" MetadataType="Schema" ID="c4f416dc-3207-4c65-871e-ae84e4d8db17" SourceId="1" SourceUrl="http://localhost:9999/FaStorageService?xsd=xsd2" />
+    <MetadataFile FileName="CFaStorageService.wsdl" MetadataType="Wsdl" ID="b46641b0-1b27-4608-8a1a-f9df26318197" SourceId="1" SourceUrl="http://localhost:9999/FaStorageService?wsdl" />
+    <MetadataFile FileName="FaStorageService.disco" MetadataType="Disco" ID="f1135047-a329-43f5-b1cd-7881aa58ec80" SourceId="1" SourceUrl="http://localhost:9999/FaStorageService?disco" />
+    <MetadataFile FileName="FaStorageService2.xsd" MetadataType="Schema" ID="24c756ea-ba10-4172-9c5c-fd5423797d56" SourceId="1" SourceUrl="http://localhost:9999/FaStorageService?xsd=xsd3" />
+    <MetadataFile FileName="FaStorageService3.xsd" MetadataType="Schema" ID="3c9cf8ef-2fa6-46af-b2d4-d3d46aed11aa" SourceId="1" SourceUrl="http://localhost:9999/FaStorageService?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

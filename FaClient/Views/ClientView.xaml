@@ -1,0 +1,211 @@
+﻿<Window
+    x:Class="FaClient.RulesListView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="clr-namespace:FaClient.ViewModels"
+    x:Name="rules"
+    Title="Rules list..."
+    MinWidth="800"
+    MinHeight="600"
+    FontFamily="{materialDesign:MaterialDesignFont}"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Grid>
+        <TabControl>
+            <TabItem x:Name="Rules">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="FormatListBulleted" />
+                        <TextBlock Margin="3">Rules</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="109*" />
+                            <RowDefinition Height="395*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="39*" />
+                            <ColumnDefinition Width="37*" />
+                        </Grid.ColumnDefinitions>
+
+                        <DockPanel
+                            Grid.RowSpan="2"
+                            Grid.ColumnSpan="2"
+                            Margin="5,5"
+                            LastChildFill="True">
+                            <Grid DockPanel.Dock="Top">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <DockPanel
+                                    Grid.Column="0"
+                                    Margin="5,5"
+                                    LastChildFill="True">
+                                    <TextBlock DockPanel.Dock="Top" Style="{DynamicResource MaterialDesignTextBlock}">
+                                        <Hyperlink Command="{Binding Path=AddNewRuleCommand}" Style="{DynamicResource MaterialDesignBody1Hyperlink}">Add new rule</Hyperlink>
+                                    </TextBlock>
+                                    <TextBlock
+                                        Margin="0,5,0,0"
+                                        DockPanel.Dock="Top"
+                                        Style="{DynamicResource MaterialDesignTextBlock}">
+                                        <Hyperlink
+                                            Command="{Binding Path=PauseRulesCommand}"
+                                            IsEnabled="{Binding Path=ViewData.IsAnyChecked}"
+                                            Style="{DynamicResource MaterialDesignBody1Hyperlink}">
+                                            Pause selected rule(s)
+                                        </Hyperlink>
+                                    </TextBlock>
+                                    <TextBlock
+                                        Margin="0,5,0,0"
+                                        DockPanel.Dock="Top"
+                                        Style="{DynamicResource MaterialDesignTextBlock}">
+                                        <Hyperlink
+                                            Command="{Binding Path=ActivateRulesCommand}"
+                                            IsEnabled="{Binding Path=ViewData.IsAnyChecked}"
+                                            Style="{DynamicResource MaterialDesignBody1Hyperlink}">
+                                            Activate selected rule(s)
+                                        </Hyperlink>
+                                    </TextBlock>
+                                    <TextBlock
+                                        Margin="0,5,0,5"
+                                        DockPanel.Dock="Top"
+                                        Style="{DynamicResource MaterialDesignTextBlock}">
+                                        <Hyperlink
+                                            Command="{Binding Path=DeleteRulesCommand}"
+                                            IsEnabled="{Binding Path=ViewData.IsAnyChecked}"
+                                            Style="{DynamicResource MaterialDesignBody1Hyperlink}">
+                                            Delete selected rule(s)
+                                        </Hyperlink>
+                                    </TextBlock>
+                                </DockPanel>
+                                <DockPanel
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="2"
+                                    Margin="5,0"
+                                    LastChildFill="False">
+                                    <StackPanel DockPanel.Dock="Right">
+                                        <Button
+                                            Margin="0,5"
+                                            Command="{Binding Path=StartWatcherCommand}"
+                                            Content="START"
+                                            IsEnabled="{Binding ViewData.EnableStart}"
+                                            Style="{DynamicResource MaterialDesignFlatLightBgButton}" />
+                                        <Button
+                                            Margin="0,5"
+                                            Command="{Binding Path=CloseCommand}"
+                                            Content="CLOSE"
+                                            Style="{DynamicResource MaterialDesignFlatLightBgButton}" />
+                                        <Button
+                                            Margin="0,5"
+                                            Command="{Binding Path=LoadRulesCommand}"
+                                            Content="LOAD RULES"
+                                            Style="{DynamicResource MaterialDesignFlatLightBgButton}" />
+                                    </StackPanel>
+                                </DockPanel>
+                            </Grid>
+                            <DataGrid
+                                x:Name="DataGridRules"
+                                Margin="5,0"
+                                materialDesign:DataGridAssist.CellPadding="0 3"
+                                materialDesign:DataGridAssist.ColumnHeaderPadding="0 5"
+                                AutoGenerateColumns="False"
+                                BorderBrush="Teal"
+                                BorderThickness="1"
+                                CanUserAddRows="False"
+                                CanUserDeleteRows="False"
+                                DockPanel.Dock="Bottom"
+                                IsReadOnly="True"
+                                ItemsSource="{Binding Path=ViewData.RuleItems}"
+                                SelectedItem="{Binding Path=SelectedItem}"
+                                SelectionMode="Extended">
+                                <DataGrid.InputBindings>
+                                    <MouseBinding Command="{Binding EditRuleCommand}" MouseAction="LeftDoubleClick" />
+                                </DataGrid.InputBindings>
+                                <DataGrid.CellStyle>
+                                    <Style TargetType="{x:Type DataGridCell}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding IsChecked}" Value="True">
+                                                <Setter Property="Foreground" Value="Black" />
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGrid.CellStyle>
+                                <DataGrid.Columns>
+                                    <DataGridTemplateColumn
+                                        x:Name="StateColumn"
+                                        Width="30"
+                                        MaxWidth="30"
+                                        Header="">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="viewModels:CRuleItemViewData">
+                                                <CheckBox IsChecked="{Binding Path=IsChecked, UpdateSourceTrigger=PropertyChanged}"
+                                                          Margin="3 0"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <materialDesign:DataGridTextColumn
+                                        Width="0.10*"
+                                        MaxWidth="100"
+                                        Binding="{Binding Path=State}"
+                                        Header="State" />
+                                    <materialDesign:DataGridTextColumn
+                                        Width="0.35*"
+                                        Binding="{Binding Path=Folder}"
+                                        Header="Folder" />
+                                    <materialDesign:DataGridTextColumn
+                                        Width="0.05*"
+                                        MaxWidth="50"
+                                        Binding="{Binding Path=IncludeSubfolders}"
+                                        Header="Subf." />
+                                    <materialDesign:DataGridTextColumn
+                                        Width="0.10*"
+                                        Binding="{Binding Path=FileEvents}"
+                                        Header="Events" />
+                                    <materialDesign:DataGridTextColumn
+                                        Width="0.10*"
+                                        Binding="{Binding Path=MasksInclude}"
+                                        Header="Include masks" />
+                                    <materialDesign:DataGridTextColumn
+                                        Width="0.10*"
+                                        Binding="{Binding Path=MasksExclude}"
+                                        Header="Exclude masks" />
+                                    <materialDesign:DataGridTextColumn
+                                        Width="0.10*"
+                                        Binding="{Binding Path=Email}"
+                                        Header="Email" />
+                                    <materialDesign:DataGridTextColumn
+                                        Width="0.05*"
+                                        Binding="{Binding Path=Notify}"
+                                        Header="Notify" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </DockPanel>
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem x:Name="Monitoring">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Monitor" />
+                        <TextBlock Margin="3">Monitoring</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <Grid>
+                        <ScrollViewer VerticalScrollBarVisibility="Auto">
+                            <ItemsControl ItemsSource="{Binding LastEvents}" />
+                        </ScrollViewer>
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
+    </Grid>
+    <Window.Resources />
+</Window>

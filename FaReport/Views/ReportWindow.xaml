@@ -1,0 +1,202 @@
+﻿<Window
+    x:Class="FaReport.ReportWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="clr-namespace:Infrastructure.UI;assembly=Infrastructure"
+    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+    Title="Report"
+    FontFamily="{materialDesign:MaterialDesignFont}"
+    WindowState="Maximized"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <ui:CEnumValueConvertor x:Key="FileEventsConvertor" />
+    </Window.Resources>
+    <Grid>
+        <DockPanel LastChildFill="True">
+            <Grid Margin="5,5" DockPanel.Dock="Top">
+                <Grid DockPanel.Dock="Top">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="200" />
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="200" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Margin="0,0,0,3"
+                        Text="Computer name" />
+                    <TextBox
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Margin="0,0,0,3"
+                        Text="{Binding ComputerName}" />
+                    <TextBlock
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Margin="0,0,0,3"
+                        Text="IP-address" />
+                    <TextBox
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="0,0,0,3"
+                        Text="{Binding IpAddress}" />
+                    <TextBlock
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Margin="0,0,0,3"
+                        Text="File name" />
+                    <TextBox
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Margin="0,0,0,3"
+                        Text="{Binding FileName}" />
+                    <TextBlock
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        Margin="0,0,0,3"
+                        Text="User name" />
+                    <TextBox
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Margin="0,0,0,3"
+                        Text="{Binding UserName}" />
+                    <TextBlock
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        Margin="5,0,0,3"
+                        Text="Period (start)" />
+                    <TextBlock
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        Margin="5,0,0,3"
+                        Text="Period (end)" />
+                    <xctk:DateTimePicker
+                        Grid.Row="0"
+                        Grid.Column="3"
+                        Margin="0,0,0,3"
+                        AllowTextInput="True"
+                        Format="Custom"
+                        FormatString="yyyy-MM-dd HH:mm:ss"
+                        ShowButtonSpinner="False"
+                        Value="{Binding PeriodStart}" />
+                    <xctk:DateTimePicker
+                        Grid.Row="1"
+                        Grid.Column="3"
+                        Margin="0,0,0,3"
+                        AllowTextInput="True"
+                        Format="Custom"
+                        FormatString="yyyy-MM-dd HH:mm:ss"
+                        ShowButtonSpinner="False"
+                        Value="{Binding PeriodEnd}" />
+                    <TextBlock
+                        Grid.Row="4"
+                        Grid.Column="2"
+                        Margin="5,0"
+                        Text="Items limit" />
+                    <TextBox
+                        Grid.Row="4"
+                        Grid.Column="3"
+                        Width="100"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="{Binding Path=ItemsLimit}" />
+
+                    <TextBlock
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        Text="Event" />
+                    <Grid Grid.Row="4" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <CheckBox
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Content="Created"
+                            IsChecked="{Binding FileEvents, Converter={StaticResource FileEventsConvertor}, ConverterParameter='Created'}" />
+                        <CheckBox
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Content="Deleted"
+                            IsChecked="{Binding FileEvents, Converter={StaticResource FileEventsConvertor}, ConverterParameter='Deleted'}" />
+                        <CheckBox
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Content="Renamed"
+                            IsChecked="{Binding FileEvents, Converter={StaticResource FileEventsConvertor}, ConverterParameter='Renamed'}" />
+                        <CheckBox
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Content="Changed"
+                            IsChecked="{Binding FileEvents, Converter={StaticResource FileEventsConvertor}, ConverterParameter='Changed'}" />
+                    </Grid>
+                </Grid>
+                <StackPanel Orientation="Vertical">
+                    <Button
+                        Margin="0,5"
+                        HorizontalAlignment="Right"
+                        Command="{Binding Path=SearchCommand}"
+                        Content="Refresh"
+                        Style="{DynamicResource MaterialDesignFlatLightBgButton}" />
+                    <Button
+                        Margin="0,5"
+                        HorizontalAlignment="Right"
+                        Command="{Binding Path=ExportCsvCommand}"
+                        Content="Export to CSV"
+                        Style="{DynamicResource MaterialDesignFlatLightBgButton}" />
+                </StackPanel>
+            </Grid>
+            <DataGrid
+                Margin="5,5"
+                materialDesign:DataGridAssist.CellPadding="0"
+                materialDesign:DataGridAssist.ColumnHeaderPadding="0 5"
+                AutoGenerateColumns="False"
+                CanUserAddRows="False"
+                CanUserDeleteRows="False"
+                DockPanel.Dock="Bottom"
+                IsReadOnly="True"
+                ItemsSource="{Binding Path=Events}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn
+                        Width="0.15*"
+                        Binding="{Binding Path=Computer}"
+                        Header="Computer (name, IP)" />
+                    <DataGridTextColumn
+                        Width="0.3*"
+                        Binding="{Binding Path=File}"
+                        Header="File" />
+                    <DataGridTextColumn
+                        Width="0.10*"
+                        Binding="{Binding Path=FileEvent}"
+                        Header="Event" />
+                    <DataGridTextColumn
+                        Width="0.15*"
+                        Binding="{Binding Path=EventDateTime}"
+                        Header="DateTime"
+                        SortDirection="Descending" />
+                    <DataGridTextColumn
+                        Width="0.15*"
+                        Binding="{Binding Path=UserName}"
+                        Header="UserName" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+    </Grid>
+</Window>

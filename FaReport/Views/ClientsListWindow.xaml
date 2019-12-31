@@ -1,0 +1,54 @@
+﻿<Window
+    x:Class="FaReport.ClientsListWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Launched clients"
+    Width="800"
+    Height="450"
+    FontFamily="{materialDesign:MaterialDesignFont}"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Grid>
+        <DockPanel Margin="5,5" LastChildFill="True">
+            <StackPanel DockPanel.Dock="Top">
+                <Button
+                    Margin="0,5"
+                    HorizontalAlignment="Right"
+                    Command="{Binding Path=ShowReportCommand}"
+                    Content="Show Report"
+                    Style="{DynamicResource MaterialDesignFlatLightBgButton}" />
+            </StackPanel>
+            <DataGrid
+                materialDesign:DataGridAssist.CellPadding="0 3"
+                materialDesign:DataGridAssist.ColumnHeaderPadding="0 5"
+                AutoGenerateColumns="False"
+                BorderBrush="Teal"
+                BorderThickness="1"
+                DockPanel.Dock="Bottom"
+                IsReadOnly="True"
+                ItemsSource="{Binding Path=Clients}">
+                <DataGrid.Columns>
+                    <materialDesign:DataGridTextColumn
+                        Width="0.3*"
+                        Binding="{Binding Path=Name}"
+                        Header="Client (name)" />
+                    <materialDesign:DataGridTextColumn
+                        Width="0.3*"
+                        Binding="{Binding Path=IpAddress}"
+                        Header="Client(IP-address)" />
+                    <materialDesign:DataGridTextColumn
+                        Width="0.25*"
+                        Binding="{Binding Path=LastEventDateTime}"
+                        Header="Last event (DateTime)" />
+                    <materialDesign:DataGridTextColumn
+                        Width="0.15*"
+                        Binding="{Binding Path=State}"
+                        Header="State" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+    </Grid>
+</Window>

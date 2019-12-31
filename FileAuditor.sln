@@ -1,0 +1,114 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2050
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaClient", "FaClient\FaClient.csproj", "{37AB6377-65D8-4968-894D-FC04956A6ADA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D375B668-6462-4110-A3CF-B14034B9C90C} = {D375B668-6462-4110-A3CF-B14034B9C90C}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaReport", "FaReport\FaReport.csproj", "{143C112A-CD8E-42C1-BB3E-66DFC97470EF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D375B668-6462-4110-A3CF-B14034B9C90C} = {D375B668-6462-4110-A3CF-B14034B9C90C}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{7E5CB500-D0F2-4B2A-B878-89B63E97CFFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaStorageServer", "FaStorageServer\FaStorageServer.csproj", "{D375B668-6462-4110-A3CF-B14034B9C90C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaClient.Tests", "FaClient.Tests\FaClient.Tests.csproj", "{4B787CC1-F448-49D7-812D-2CE2F4B9A584}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaStorageServer.Tests", "FaStorageServer.Tests\FaStorageServer.Tests.csproj", "{7E4B37A5-E835-4CBA-B1E1-0A2B85DEE832}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Database", "Database\Database.sqlproj", "{4BDC0E5E-28B7-4FFB-BB11-C3639E78D89F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaNotificationService", "FaNotificationService\FaNotificationService.csproj", "{772673AE-1F78-4B25-8D03-628A856E389A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaExportService", "FaExportService\FaExportService.csproj", "{DDF3DB3F-9723-493F-8D49-FDA391AD887A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37AB6377-65D8-4968-894D-FC04956A6ADA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37AB6377-65D8-4968-894D-FC04956A6ADA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37AB6377-65D8-4968-894D-FC04956A6ADA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37AB6377-65D8-4968-894D-FC04956A6ADA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{143C112A-CD8E-42C1-BB3E-66DFC97470EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{143C112A-CD8E-42C1-BB3E-66DFC97470EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{143C112A-CD8E-42C1-BB3E-66DFC97470EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{143C112A-CD8E-42C1-BB3E-66DFC97470EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E5CB500-D0F2-4B2A-B878-89B63E97CFFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E5CB500-D0F2-4B2A-B878-89B63E97CFFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E5CB500-D0F2-4B2A-B878-89B63E97CFFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E5CB500-D0F2-4B2A-B878-89B63E97CFFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D375B668-6462-4110-A3CF-B14034B9C90C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D375B668-6462-4110-A3CF-B14034B9C90C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D375B668-6462-4110-A3CF-B14034B9C90C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D375B668-6462-4110-A3CF-B14034B9C90C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B787CC1-F448-49D7-812D-2CE2F4B9A584}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B787CC1-F448-49D7-812D-2CE2F4B9A584}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B787CC1-F448-49D7-812D-2CE2F4B9A584}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B787CC1-F448-49D7-812D-2CE2F4B9A584}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E4B37A5-E835-4CBA-B1E1-0A2B85DEE832}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E4B37A5-E835-4CBA-B1E1-0A2B85DEE832}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E4B37A5-E835-4CBA-B1E1-0A2B85DEE832}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E4B37A5-E835-4CBA-B1E1-0A2B85DEE832}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BDC0E5E-28B7-4FFB-BB11-C3639E78D89F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BDC0E5E-28B7-4FFB-BB11-C3639E78D89F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BDC0E5E-28B7-4FFB-BB11-C3639E78D89F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{4BDC0E5E-28B7-4FFB-BB11-C3639E78D89F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BDC0E5E-28B7-4FFB-BB11-C3639E78D89F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BDC0E5E-28B7-4FFB-BB11-C3639E78D89F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{772673AE-1F78-4B25-8D03-628A856E389A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{772673AE-1F78-4B25-8D03-628A856E389A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{772673AE-1F78-4B25-8D03-628A856E389A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{772673AE-1F78-4B25-8D03-628A856E389A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDF3DB3F-9723-493F-8D49-FDA391AD887A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDF3DB3F-9723-493F-8D49-FDA391AD887A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDF3DB3F-9723-493F-8D49-FDA391AD887A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDF3DB3F-9723-493F-8D49-FDA391AD887A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {775B1952-DB08-4A61-8998-5B2DA4480E39}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 10
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://dev.azure.com/vacourse5
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = FaClient.Tests\\FaClient.Tests.csproj
+		SccProjectName1 = FaClient.Tests
+		SccLocalPath1 = FaClient.Tests
+		SccProjectUniqueName2 = FaClient\\FaClient.csproj
+		SccProjectName2 = FaClient
+		SccLocalPath2 = FaClient
+		SccProjectUniqueName3 = FaReport\\FaReport.csproj
+		SccProjectName3 = FaReport
+		SccLocalPath3 = FaReport
+		SccProjectUniqueName4 = FaStorageServer.Tests\\FaStorageServer.Tests.csproj
+		SccProjectName4 = FaStorageServer.Tests
+		SccLocalPath4 = FaStorageServer.Tests
+		SccProjectUniqueName5 = FaStorageServer\\FaStorageServer.csproj
+		SccProjectName5 = FaStorageServer
+		SccLocalPath5 = FaStorageServer
+		SccProjectUniqueName6 = Infrastructure\\Infrastructure.csproj
+		SccProjectName6 = Infrastructure
+		SccLocalPath6 = Infrastructure
+		SccProjectUniqueName7 = Database\\Database.sqlproj
+		SccProjectName7 = Database
+		SccLocalPath7 = Database
+		SccProjectUniqueName8 = FaNotificationService\\FaNotificationService.csproj
+		SccProjectName8 = FaNotificationService
+		SccLocalPath8 = FaNotificationService
+		SccProjectUniqueName9 = FaExportService\\FaExportService.csproj
+		SccProjectName9 = FaExportService
+		SccLocalPath9 = FaExportService
+	EndGlobalSection
+EndGlobal

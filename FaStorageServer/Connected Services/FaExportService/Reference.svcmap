@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4fbedcd4-2ec0-41a5-a830-395ea92cc0ea" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:9997/FaExportService" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="FaExportService.xsd" MetadataType="Schema" ID="40e311dd-f284-41c8-b74d-6dd2868d16c0" SourceId="1" SourceUrl="http://localhost:9997/FaExportService?xsd=xsd0" />
+    <MetadataFile FileName="FaExportService1.xsd" MetadataType="Schema" ID="00534760-21dd-4d21-8d86-8ff4a2cf0ece" SourceId="1" SourceUrl="http://localhost:9997/FaExportService?xsd=xsd1" />
+    <MetadataFile FileName="FaExportService2.xsd" MetadataType="Schema" ID="cdb3ebfe-7e42-4cc1-8727-b908ef0749b1" SourceId="1" SourceUrl="http://localhost:9997/FaExportService?xsd=xsd2" />
+    <MetadataFile FileName="FaExportService.disco" MetadataType="Disco" ID="bd85dad6-9bd3-4922-a9fe-540833a77910" SourceId="1" SourceUrl="http://localhost:9997/FaExportService?disco" />
+    <MetadataFile FileName="FaExportService3.xsd" MetadataType="Schema" ID="9a1f874b-0806-4086-a2c4-fcbd50c38613" SourceId="1" SourceUrl="http://localhost:9997/FaExportService?xsd=xsd3" />
+    <MetadataFile FileName="CExportService.wsdl" MetadataType="Wsdl" ID="5eed2425-3872-44bb-bd38-4fe1dd2c0825" SourceId="1" SourceUrl="http://localhost:9997/FaExportService?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

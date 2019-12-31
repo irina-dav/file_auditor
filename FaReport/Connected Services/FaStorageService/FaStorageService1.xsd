@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Infrastructure.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Infrastructure.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:9999/FaStorageService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="CClientInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientInfoId" type="ser:guid" />
+      <xs:element minOccurs="0" name="ComputerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IpAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastEventDateTimeUtc" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="State" type="tns:EClientState" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CClientInfo" nillable="true" type="tns:CClientInfo" />
+  <xs:simpleType name="EClientState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="Active" />
+      <xs:enumeration value="Paused" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EClientState" nillable="true" type="tns:EClientState" />
+  <xs:complexType name="CEventInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccessMask" type="tns:EAccessMask" />
+      <xs:element minOccurs="0" name="ClientInfo" nillable="true" type="tns:CClientInfo" />
+      <xs:element minOccurs="0" name="ClientInfoId" type="ser:guid" />
+      <xs:element minOccurs="0" name="Computer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DomainName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EventId" type="xs:int" />
+      <xs:element minOccurs="0" name="EventInfoId" type="ser:guid" />
+      <xs:element minOccurs="0" name="EventRecordId" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="FileEvent" type="tns:EFileEvents" />
+      <xs:element minOccurs="0" name="HandleId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ObjectName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeCreatedUtc" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CEventInfo" nillable="true" type="tns:CEventInfo" />
+  <xs:simpleType name="EAccessMask">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Unknown">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ReadData">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="WriteData">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="AppendData">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ReadExtAttr">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="WriteExtAttr">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Execute">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">32</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="DeleteChild">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">64</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ReadAttributes">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">128</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="WriteAttributes">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">256</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Delete">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">65536</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ReadControl">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">131072</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="WriteDac">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">262144</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="WriteOwner">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">524288</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Synchronize">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1048576</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="EAccessMask" nillable="true" type="tns:EAccessMask" />
+  <xs:simpleType name="EFileEvents">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="None">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Created">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Deleted">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Renamed">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Changed">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="EFileEvents" nillable="true" type="tns:EFileEvents" />
+  <xs:complexType name="ArrayOfCRule">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CRule" nillable="true" type="tns:CRule" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCRule" nillable="true" type="tns:ArrayOfCRule" />
+  <xs:complexType name="CRule">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientInfoId" type="ser:guid" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileEvents" type="tns:EFileEvents" />
+      <xs:element minOccurs="0" name="Folder" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IncludeSubfolders" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MasksExclude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MasksInclude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Notify" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RuleId" type="ser:guid" />
+      <xs:element minOccurs="0" name="State" type="tns:ERuleState" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CRule" nillable="true" type="tns:CRule" />
+  <xs:simpleType name="ERuleState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Paused" />
+      <xs:enumeration value="Active" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ERuleState" nillable="true" type="tns:ERuleState" />
+  <xs:complexType name="ArrayOfCClientInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CClientInfo" nillable="true" type="tns:CClientInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCClientInfo" nillable="true" type="tns:ArrayOfCClientInfo" />
+  <xs:complexType name="ArrayOfCEventInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CEventInfo" nillable="true" type="tns:CEventInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCEventInfo" nillable="true" type="tns:ArrayOfCEventInfo" />
+  <xs:complexType name="CSearchFilter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ComputerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileEvents" type="tns:EFileEvents" />
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IpAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Limit" type="xs:int" />
+      <xs:element minOccurs="0" name="PeriodEnd" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PeriodStart" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CSearchFilter" nillable="true" type="tns:CSearchFilter" />
+</xs:schema>

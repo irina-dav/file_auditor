@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/System.Collections.ObjectModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System.Collections.ObjectModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:9999/FaStorageService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Infrastructure.Models" />
+  <xs:complexType name="ReadOnlyCollectionOfCEventInfo98kFOXop">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ReadOnlyCollectionOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Collections.ObjectModel" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="CEventInfo" Namespace="http://schemas.datacontract.org/2004/07/Infrastructure.Models" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Infrastructure.Models" name="list" nillable="true" type="q1:ArrayOfCEventInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReadOnlyCollectionOfCEventInfo98kFOXop" nillable="true" type="tns:ReadOnlyCollectionOfCEventInfo98kFOXop" />
+</xs:schema>

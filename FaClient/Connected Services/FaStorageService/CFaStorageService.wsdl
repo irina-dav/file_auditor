@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CFaStorageService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:9999/FaStorageService?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:9999/FaStorageService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:9999/FaStorageService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Infrastructure.Models" />
+      <xsd:import schemaLocation="http://localhost:9999/FaStorageService?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Collections.ObjectModel" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IFaStorageService_RegisterClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterClient" />
+  </wsdl:message>
+  <wsdl:message name="IFaStorageService_RegisterClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFaStorageService_FindEventInfoById_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindEventInfoById" />
+  </wsdl:message>
+  <wsdl:message name="IFaStorageService_FindEventInfoById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindEventInfoByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFaStorageService_FindAllRules_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindAllRules" />
+  </wsdl:message>
+  <wsdl:message name="IFaStorageService_FindAllRules_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindAllRulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFaStorageService_FindRulesByClientId_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindRulesByClientId" />
+  </wsdl:message>
+  <wsdl:message name="IFaStorageService_FindRulesByClientId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindRulesByClientIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFaStorageService_FindRuleById_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindRuleById" />
+  </wsdl:message>
+  <wsdl:message name="IFaStorageService_FindRuleById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindRuleByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFaStorageService_FindClientsWithLastDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindClientsWithLastDate" />
+  </wsdl:message>
+  <wsdl:message name="IFaStorageService_FindClientsWithLastDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindClientsWithLastDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFaStorageService_FindClientInfoById_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindClientInfoById" />
+  </wsdl:message>
+  <wsdl:message name="IFaStorageService_FindClientInfoById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindClientInfoByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFaStorageService_FindClientInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindClientInfo" />
+  </wsdl:message>
+  <wsdl:message name="IFaStorageService_FindClientInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindClientInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFaStorageService_WriteEventInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:WriteEventInfo" />
+  </wsdl:message>
+  <wsdl:message name="IFaStorageService_WriteEventInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:WriteEventInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFaStorageService_SendNotification_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendNotification" />
+  </wsdl:message>
+  <wsdl:message name="IFaStorageService_SendNotification_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFaStorageService_DeleteRule_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRule" />
+  </wsdl:message>
+  <wsdl:message name="IFaStorageService_DeleteRule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFaStorageService_InsertRule_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertRule" />
+  </wsdl:message>
+  <wsdl:message name="IFaStorageService_InsertRule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertRuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFaStorageService_UpdateRule_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRule" />
+  </wsdl:message>
+  <wsdl:message name="IFaStorageService_UpdateRule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFaStorageService_UpdateClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClient" />
+  </wsdl:message>
+  <wsdl:message name="IFaStorageService_UpdateClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFaStorageService_SearchEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchEvents" />
+  </wsdl:message>
+  <wsdl:message name="IFaStorageService_SearchEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchEventsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IFaStorageService">
+    <wsdl:operation name="RegisterClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFaStorageService/RegisterClient" message="tns:IFaStorageService_RegisterClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFaStorageService/RegisterClientResponse" message="tns:IFaStorageService_RegisterClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindEventInfoById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFaStorageService/FindEventInfoById" message="tns:IFaStorageService_FindEventInfoById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFaStorageService/FindEventInfoByIdResponse" message="tns:IFaStorageService_FindEventInfoById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindAllRules">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFaStorageService/FindAllRules" message="tns:IFaStorageService_FindAllRules_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFaStorageService/FindAllRulesResponse" message="tns:IFaStorageService_FindAllRules_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindRulesByClientId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFaStorageService/FindRulesByClientId" message="tns:IFaStorageService_FindRulesByClientId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFaStorageService/FindRulesByClientIdResponse" message="tns:IFaStorageService_FindRulesByClientId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindRuleById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFaStorageService/FindRuleById" message="tns:IFaStorageService_FindRuleById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFaStorageService/FindRuleByIdResponse" message="tns:IFaStorageService_FindRuleById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindClientsWithLastDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFaStorageService/FindClientsWithLastDate" message="tns:IFaStorageService_FindClientsWithLastDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFaStorageService/FindClientsWithLastDateResponse" message="tns:IFaStorageService_FindClientsWithLastDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindClientInfoById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFaStorageService/FindClientInfoById" message="tns:IFaStorageService_FindClientInfoById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFaStorageService/FindClientInfoByIdResponse" message="tns:IFaStorageService_FindClientInfoById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindClientInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFaStorageService/FindClientInfo" message="tns:IFaStorageService_FindClientInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFaStorageService/FindClientInfoResponse" message="tns:IFaStorageService_FindClientInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="WriteEventInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFaStorageService/WriteEventInfo" message="tns:IFaStorageService_WriteEventInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFaStorageService/WriteEventInfoResponse" message="tns:IFaStorageService_WriteEventInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendNotification">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFaStorageService/SendNotification" message="tns:IFaStorageService_SendNotification_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFaStorageService/SendNotificationResponse" message="tns:IFaStorageService_SendNotification_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFaStorageService/DeleteRule" message="tns:IFaStorageService_DeleteRule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFaStorageService/DeleteRuleResponse" message="tns:IFaStorageService_DeleteRule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertRule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFaStorageService/InsertRule" message="tns:IFaStorageService_InsertRule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFaStorageService/InsertRuleResponse" message="tns:IFaStorageService_InsertRule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFaStorageService/UpdateRule" message="tns:IFaStorageService_UpdateRule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFaStorageService/UpdateRuleResponse" message="tns:IFaStorageService_UpdateRule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFaStorageService/UpdateClient" message="tns:IFaStorageService_UpdateClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFaStorageService/UpdateClientResponse" message="tns:IFaStorageService_UpdateClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFaStorageService/SearchEvents" message="tns:IFaStorageService_SearchEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFaStorageService/SearchEventsResponse" message="tns:IFaStorageService_SearchEvents_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IFaStorageService" type="tns:IFaStorageService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegisterClient">
+      <soap:operation soapAction="http://tempuri.org/IFaStorageService/RegisterClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindEventInfoById">
+      <soap:operation soapAction="http://tempuri.org/IFaStorageService/FindEventInfoById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindAllRules">
+      <soap:operation soapAction="http://tempuri.org/IFaStorageService/FindAllRules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindRulesByClientId">
+      <soap:operation soapAction="http://tempuri.org/IFaStorageService/FindRulesByClientId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindRuleById">
+      <soap:operation soapAction="http://tempuri.org/IFaStorageService/FindRuleById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindClientsWithLastDate">
+      <soap:operation soapAction="http://tempuri.org/IFaStorageService/FindClientsWithLastDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindClientInfoById">
+      <soap:operation soapAction="http://tempuri.org/IFaStorageService/FindClientInfoById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindClientInfo">
+      <soap:operation soapAction="http://tempuri.org/IFaStorageService/FindClientInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteEventInfo">
+      <soap:operation soapAction="http://tempuri.org/IFaStorageService/WriteEventInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendNotification">
+      <soap:operation soapAction="http://tempuri.org/IFaStorageService/SendNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRule">
+      <soap:operation soapAction="http://tempuri.org/IFaStorageService/DeleteRule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertRule">
+      <soap:operation soapAction="http://tempuri.org/IFaStorageService/InsertRule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRule">
+      <soap:operation soapAction="http://tempuri.org/IFaStorageService/UpdateRule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClient">
+      <soap:operation soapAction="http://tempuri.org/IFaStorageService/UpdateClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchEvents">
+      <soap:operation soapAction="http://tempuri.org/IFaStorageService/SearchEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CFaStorageService">
+    <wsdl:port name="BasicHttpBinding_IFaStorageService" binding="tns:BasicHttpBinding_IFaStorageService">
+      <soap:address location="http://localhost:9999/FaStorageService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
